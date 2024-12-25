@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi Excel thành JSON</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+    <style>
+        /* Reset các kiểu mặc định của trình duyệt */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Cài đặt font cho toàn bộ trang */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fb;
+            color: #333;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Chỉnh sửa tiêu đề trang */
+        h1 {
+            color: #4e73df;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Định dạng cho nút file input */
+        input[type="file"] {
+            display: none; /* Ẩn input mặc định */
+        }
+
+        .upload-btn {
+            padding: 12px 25px;
+            background-color: #4e73df;
+            color: white;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-btn:hover {
+            background-color: #2e59d9;
+        }
+
+        /* Định dạng cho khung hiển thị kết quả JSON */
+        pre#json-output {
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Đảm bảo giao diện đẹp trên các thiết bị di động */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            pre#json-output {
+                width: 100%;
+            }
+
+            .upload-btn {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Chuyển đổi Excel thành JSON</h1>
+    
+    <!-- Nút bấm để tải file Excel -->
+    <label for="excel-file" class="upload-btn">Chọn tệp Excel</label>
+    <input type="file" id="excel-file" />
+    
+    <!-- Hiển thị kết quả JSON -->
+    <pre id="json-output"></pre>
+
+    <script>
+        document.getElementById('excel-file').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const data = e.target.result;
+                const workbook = XLSX.read(data, { type: 'binary' });
+
+                // Chọn sheet đầu tiên trong workbook
+                const sheet = workbook.Sheets[workbook.SheetNames[0]];
+
+                // Chuyển đổi sheet thành JSON
+                const jsonData = XLSX.utils.sheet_to_json(sheet);
+
+                // Hiển thị dữ liệu JSON
+                document.getElementById('json-output').textContent = JSON.stringify(jsonData, null, 2);
+            };
+
+            reader.readAsBinaryString(file);
+        });
+    </script>
+</body>
+</html>
