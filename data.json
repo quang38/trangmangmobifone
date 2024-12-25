@@ -1,0 +1,20 @@
+[
+    {
+        "package": "Gói 4G",
+        "offer": "10GB data mỗi tháng",
+        "price": "100,000 VND",
+        "image": "https://via.placeholder.com/250x150?text=Gói+4G"
+    },
+    {
+        "package": "Gói Siêu Tốc",
+        "offer": "Unlimited data trong 30 ngày",
+        "price": "200,000 VND",
+        "image": "https://via.placeholder.com/250x150?text=Gói+Siêu+Tốc"
+    },
+    {
+        "package": "Gói Cơ Bản",
+        "offer": "5GB data + 100 phút gọi",
+        "price": "50,000 VND",
+        "image": "https://via.placeholder.com/250x150?text=Gói+Cơ+Bản"
+    }
+]

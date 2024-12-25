@@ -1,0 +1,124 @@
+/* Các styles tương tự như mẫu đã cho */
+body {
+    background: linear-gradient(180deg, #121212, #1a1a2e);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+}
+
+/* Style cho các phần tử khác vẫn giữ nguyên như trước */
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: linear-gradient(145deg, #232341, #161625);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #6c63ff;
+}
+
+.project-card .project-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.project-card h3 {
+    font-size: 1.6rem;
+    color: #6c63ff;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+.project-card a {
+    color: #6c63ff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    background: rgba(108, 99, 255, 0.15);
+    border-radius: 50px;
+}
+
+.project-card a:hover {
+    background: #6c63ff;
+    color: #fff;
+}
+
+.footer {
+    margin-top: 5%;
+    background: #232341;
+    color: #ccc;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Kiểu cho nút quay về trang chủ */
+.home-button {
+    padding: 10px 20px;
+    background-color: #6c63ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.home-button:hover {
+    background-color: #5248d1;
+}
+/* Header */
+.header {
+    margin-bottom: 2%;
+    background-color: #2a2a3d; /* Màu nền tối cho header */
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Bóng đổ dưới header */
+    position: relative;
+    z-index: 1;
+    border-bottom: 4px solid #4caf50; /* Viền xanh lá dưới header để làm nổi bật */
+}
+
+/* Tiêu đề của Header */
+.header h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 2px; /* Khoảng cách giữa các chữ */
+    text-transform: uppercase; /* Chữ hoa cho tiêu đề */
+    margin: 0;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Hiệu ứng bóng mờ cho chữ */
+}
+
+/* Đoạn văn trong header */
+.header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Responsive - khi kích thước màn hình nhỏ */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem; /* Giảm kích thước chữ khi màn hình nhỏ */
+    }
+}
